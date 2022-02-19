@@ -21,3 +21,8 @@ go build
 ./go-wordle
 ```
 
+To force poorman's mode, start go-wordle with:
+
+```
+./go-wordle --poorman
+```
