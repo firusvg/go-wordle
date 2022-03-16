@@ -65,7 +65,7 @@ func Input(x, y, maxlen int, allowedRunes []rune, ignoreCase bool, prompt string
 				}
 			} else {
 				if p < maxlen {
-					if utility.IndexRune(allowedRunes, unicode.ToUpper(ev.Ch)) >= 0 {
+					if utility.IndexOfGen(allowedRunes, unicode.ToUpper(ev.Ch)) >= 0 {
 						buffer[p] = unicode.ToUpper(ev.Ch)
 						termbox.SetCell(x+p, y, buffer[p], termbox.ColorWhite, termbox.ColorDefault)
 						p++

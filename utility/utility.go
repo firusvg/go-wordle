@@ -8,7 +8,7 @@ import (
 
 var WinStatuses = []string{"Genius", "Magnificent", "Impressive", "Splendid", "Great", "Phew"}
 
-func IndexOf(slice []string, item string) int {
+func IndexOfGen[T rune | string](slice []T, item T) int {
 	for i := range slice {
 		if slice[i] == item {
 			return i
@@ -16,16 +16,6 @@ func IndexOf(slice []string, item string) int {
 	}
 	return -1
 }
-
-func IndexRune(slice []rune, item rune) int {
-	for i := range slice {
-		if slice[i] == item {
-			return i
-		}
-	}
-	return -1
-}
-
 func CheckWord(_wordToCheck string, _wordGoal string) (result int, resultString string, resultEmoji string) {
 	// result: -1 - invalid word
 	//          0 - not
@@ -37,7 +27,7 @@ func CheckWord(_wordToCheck string, _wordGoal string) (result int, resultString 
 	wordGoal := []rune(_wordGoal)
 
 	//Is word valid?
-	if (IndexOf(wordlist.Solutions, strings.ToLower(_wordToCheck)) < 0) && (IndexOf(wordlist.AcceptedWords, strings.ToLower(_wordToCheck)) < 0) {
+	if (IndexOfGen(wordlist.Solutions, strings.ToLower(_wordToCheck)) < 0) && (IndexOfGen(wordlist.AcceptedWords, strings.ToLower(_wordToCheck)) < 0) {
 		resultString = "<wr>" + _wordToCheck + "<w0>"
 		resultEmoji = "🟥🟥🟥🟥🟥"
 		return -1, resultString, resultEmoji
@@ -62,7 +52,7 @@ func CheckWord(_wordToCheck string, _wordGoal string) (result int, resultString 
 	//Check yellow and wrong letters
 	for i := 0; i < len(wordToCheck); i++ {
 		if wordToCheck[i] != '🟩' {
-			j := IndexRune(wordGoal, wordToCheck[i])
+			j := IndexOfGen(wordGoal, wordToCheck[i])
 			if j >= 0 {
 				letters[i] = "<by>" + string(wordToCheck[i]) + "<w0>"
 				wordToCheck[i] = '🟨'
