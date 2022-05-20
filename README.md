@@ -26,3 +26,5 @@ To force poorman's mode, start go-wordle with:
 ```
 ./go-wordle --poorman
 ```
+
+Have fun!
