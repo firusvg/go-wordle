@@ -1,6 +1,6 @@
 # **go-wordle**
 
-**go-wordle** is a simple console application that allows user to play Wordle game in terminal. It is synchronized with official [*New York Times Wordle*](https://www.nytimes.com/games/wordle/index.html) game so you get the exact same word once per day in your terminal as on official game site.
+**go-wordle** is a simple console application that allows user to play Wordle game in terminal. It is NOT synchronized with official [*New York Times Wordle*](https://www.nytimes.com/games/wordle/index.html) game so you don't get the exact same word once per day in your terminal as on official game site.
 
 ![go-wordle](./extras/demo.gif)
 
